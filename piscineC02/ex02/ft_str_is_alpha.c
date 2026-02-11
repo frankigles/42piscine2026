@@ -1,0 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fraigles <fraigles@student.42malaga.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/04 16:43:43 by fraigles          #+#    #+#             */
+/*   Updated: 2026/02/05 21:53:37 by fraigles         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_str_is_alpha(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if ((str[i] < 65 || str[i] > 90) && (str[i] < 97 || str[i] > 122))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+/*int main(void)
+{
+	char str [] = "asdrfr12";
+	int a;
+	a = ft_str_is_alpha(str);
+	a = a + '0';
+	write(1, &a, 1);
+}*/
