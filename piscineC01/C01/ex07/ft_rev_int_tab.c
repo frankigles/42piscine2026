@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fraigles <fraigles@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 12:33:04 by fraigles          #+#    #+#             */
-/*   Updated: 2026/02/20 07:51:50 by fraigles         ###   ########.fr       */
+/*   Created: 2026/02/02 19:30:35 by fraigles          #+#    #+#             */
+/*   Updated: 2026/02/03 19:07:47 by fraigles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+void	ft_rev_int_tab(int *tab, int size)
 {
-	int	i;
-	int	sign;
-	int	number;
+	int	inter;
+	int	count;
 
-	i = 0;
-	sign = 1;
-	number = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	while (str[i] == '-' || str[i] == '+')
+	count = 0;
+	while (count < size - 1)
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		inter = tab[size - 1];
+		tab[size - 1] = tab[count];
+		tab[count] = inter;
+		count++;
+		size--;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		number = (number  * 10) + str[i] - '0';
-		i++;
-	}
-	return (sign * number);
 }
-
-/*int main(void)
-{
-	ft_atoi("2147483647");
-	return (0);
-}*/

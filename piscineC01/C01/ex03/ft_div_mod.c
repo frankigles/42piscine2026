@@ -1,30 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fraigles <fraigles@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/09 23:27:02 by fraigles          #+#    #+#             */
-/*   Updated: 2026/02/12 15:35:26 by fraigles         ###   ########.fr       */
+/*   Created: 2026/02/01 19:28:43 by fraigles          #+#    #+#             */
+/*   Updated: 2026/02/02 15:10:25 by fraigles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, char *src)
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
-	int	count;
-	int	second_count;
-
-	second_count = 0;
-	count = 0;
-	while (dest[count])
-		count++;
-	while (src[second_count])
-	{
-		dest[count] = src[second_count];
-		count++;
-		second_count++;
-	}
-	dest[count] = '\0';
-	return (dest);
+	*mod = a % b;
+	*div = a / b;
 }

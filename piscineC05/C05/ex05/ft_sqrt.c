@@ -12,42 +12,41 @@
 
 int	ft_sqrt(int nb)
 {
-	int	i;
 	int	root;
 
-	root = 0;
-	i = 1;
+	if (nb > 2)
+		root = nb / 2;
+	else
+		root = nb;
 	if (nb < 0)
 		return (0);
-	if (nb == 1)
-		return (1);
-	while (i < nb)
+	while (root > 0)
 	{
-		root = (i * i) % nb;
-		if (root == 0)
-		{
-			return (i);
-		}
-		i++;
+		if (root * root == nb)
+			return (root);
+		else
+			root --;
 	}
 	return (0);
 }
 
-/*int main(void)
+/*#include <unistd.h>
+
+int main(void)
 {
-	int x = ft_sqrt(10) + '0';
+	int x = ft_sqrt(1) + '0';
 	write(1, &x,1);
 	write(1, "\n",1);
-	x = ft_sqrt(16) + '0';
+	x = ft_sqrt(1) + '0';
 	write(1, &x,1);
 	write(1, "\n",1);
-	x = ft_sqrt(6) + '0';
+	x = ft_sqrt(2) + '0';
 	write(1, &x,1);
 	write(1, "\n",1);
-		x = ft_sqrt(36) + '0';
+		x = ft_sqrt(3) + '0';
 	write(1, &x,1);
 	write(1, "\n",1);
-		x = ft_sqrt(49) + '0';
+		x = ft_sqrt(4) + '0';
 	write(1, &x,1);
 	write(1, "\n",1);
 		x = ft_sqrt(64) + '0';

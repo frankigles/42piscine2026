@@ -1,42 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fraigles <fraigles@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 12:33:04 by fraigles          #+#    #+#             */
-/*   Updated: 2026/02/20 07:51:50 by fraigles         ###   ########.fr       */
+/*   Created: 2026/02/01 23:43:15 by fraigles          #+#    #+#             */
+/*   Updated: 2026/02/02 00:54:14 by fraigles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_strlen(char *str)
 {
-	int	i;
-	int	sign;
-	int	number;
+	int	counter;
 
-	i = 0;
-	sign = 1;
-	number = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	while (str[i] == '-' || str[i] == '+')
+	counter = 0;
+	while (str[counter] != '\0')
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		counter++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		number = (number  * 10) + str[i] - '0';
-		i++;
-	}
-	return (sign * number);
+	return (counter);
 }
-
-/*int main(void)
-{
-	ft_atoi("2147483647");
-	return (0);
-}*/

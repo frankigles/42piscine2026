@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fraigles <fraigles@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 12:33:04 by fraigles          #+#    #+#             */
-/*   Updated: 2026/02/20 07:51:50 by fraigles         ###   ########.fr       */
+/*   Created: 2026/02/09 22:37:43 by fraigles          #+#    #+#             */
+/*   Updated: 2026/02/12 19:52:37 by fraigles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	i;
-	int	sign;
-	int	number;
+	unsigned int	count;
 
-	i = 0;
-	sign = 1;
-	number = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	while (str[i] == '-' || str[i] == '+')
+	count = 0;
+	while (count < n && (s1[count] || s2[count]))
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		if (s1[count] != s2[count])
+		{
+			return (s1[count] - s2[count]);
+		}
+		count++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		number = (number  * 10) + str[i] - '0';
-		i++;
-	}
-	return (sign * number);
-}
-
-/*int main(void)
-{
-	ft_atoi("2147483647");
 	return (0);
-}*/
+}

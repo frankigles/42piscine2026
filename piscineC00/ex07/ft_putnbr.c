@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fraigles <fraigles@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 12:33:04 by fraigles          #+#    #+#             */
-/*   Updated: 2026/02/20 07:51:50 by fraigles         ###   ########.fr       */
+/*   Created: 2026/02/09 11:44:45 by fraigles          #+#    #+#             */
+/*   Updated: 2026/02/09 13:43:44 by fraigles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	sign;
-	int	number;
+#include <unistd.h>
 
-	i = 0;
-	sign = 1;
-	number = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	while (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		number = (number  * 10) + str[i] - '0';
-		i++;
-	}
-	return (sign * number);
+void	ft_putchar(char n)
+{
+	write(1, &n, 1);
 }
 
-/*int main(void)
+void	ft_putnbr(int nb)
 {
-	ft_atoi("2147483647");
-	return (0);
-}*/
+	if (nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+	}
+	ft_putchar((nb % 10) + '0');
+}

@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fraigles <fraigles@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 12:33:04 by fraigles          #+#    #+#             */
-/*   Updated: 2026/02/20 07:51:50 by fraigles         ###   ########.fr       */
+/*   Created: 2026/02/01 19:20:23 by fraigles          #+#    #+#             */
+/*   Updated: 2026/02/04 09:20:12 by fraigles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	sign;
-	int	number;
+#include <unistd.h>
 
-	i = 0;
-	sign = 1;
-	number = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	while (str[i] == '-' || str[i] == '+')
+void	ft_putstr(char *str)
+{
+	int	counter;
+
+	counter = 0;
+	while (str[counter] != '\0')
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		write(1, &str[counter], 1);
+		counter++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		number = (number  * 10) + str[i] - '0';
-		i++;
-	}
-	return (sign * number);
 }
-
-/*int main(void)
-{
-	ft_atoi("2147483647");
-	return (0);
-}*/

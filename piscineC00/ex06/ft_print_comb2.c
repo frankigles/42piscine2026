@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fraigles <fraigles@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/09 23:27:02 by fraigles          #+#    #+#             */
-/*   Updated: 2026/02/12 15:35:26 by fraigles         ###   ########.fr       */
+/*   Created: 2026/02/16 11:37:06 by fraigles          #+#    #+#             */
+/*   Updated: 2026/02/16 11:58:53 by fraigles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, char *src)
+void ft_print_comb2(void)
 {
-	int	count;
-	int	second_count;
-
-	second_count = 0;
-	count = 0;
-	while (dest[count])
-		count++;
-	while (src[second_count])
-	{
-		dest[count] = src[second_count];
-		count++;
-		second_count++;
-	}
-	dest[count] = '\0';
-	return (dest);
+	int 
 }
